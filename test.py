@@ -10,21 +10,21 @@ class Adafruit_MQTT:
     AIO_KEY = "aio_NArt58FYoM575sjz7Y4S6UCPmZzo"
     client = MQTTClient(AIO_USERNAME , AIO_KEY)
     counter = 10
-    sensor_type = 0
+    sensor_type = 1
     
     def connected(self, client):
         print("Connected...")
         for feed in self.AIO_FEED_IDs:
             self.client.subscribe(feed)
 
-    def subscribe(self, client , userdata , mid , granted_qos):
+    def subscribe(self, client, userdata, mid, granted_qos):
         print("Subscribed...")
 
     def disconnected(self, client):
         print("Disconnected...")
         sys.exit (1)
 
-    def message(self, client , feed_id , payload):
+    def message(self, client ,feed_id, payload):
         print("Received: " + payload)
 
     def __init__(self):
@@ -35,27 +35,29 @@ class Adafruit_MQTT:
         self.client.connect()
         self.client.loop_background()
         
-    
-
-object = Adafruit_MQTT()
+        
+user_1 = Adafruit_MQTT()
 
 while True:
-    object.counter = object.counter - 1
-    if object.counter <= 0:
-        object.counter = 10
-        print("Random data is publishing")
-        if object.sensor_type == 0:
-            print("Temperature...")
-            temperature = random.randint(10, 75)
-            object.client.publish("sensor_1", temperature)
-        elif object.sensor_type == 1:
-            print("Humidity...")
-            humidity = random.randint(50, 70)
-            object.client.publish("sensor_2", humidity)
-        elif object.sensor_type == 2:
-            print("Lightness...")
-            lightness = random.randint(10, 80)
-            object.client.publish("sensor_3", lightness)
-    #time.sleep(1)
+    user_1.counter = user_1.counter - 1
+    if user_1.counter <= 0:
+        user_1.counter = 10
+        print("Recorded data is publishing")
+        if user_1.sensor_type == 1:
+            temperature = random.randint(25, 75) 
+            print("Temperature is", str(temperature) + "°C")
+            user_1.client.publish("sensor_1", str(temperature) + "°C")
+            user_1.sensor_type = 2
+        elif user_1.sensor_type == 2:
+            humidity = random.randint(15, 85)
+            print("Humidity is", str(humidity) + "%")
+            user_1.client.publish("sensor_2", str(humidity) + "%")
+            user_1.sensor_type = 3
+        elif user_1.sensor_type == 3:
+            luminous_intensity = random.randint(35, 480)
+            print("Luminous intensity is", str(luminous_intensity) + "lx")
+            user_1.client.publish("sensor_3", str(luminous_intensity) + "lx")
+            user_1.sensor_type = 1
+
+        time.sleep(1)
     #print("successfully connected")
-        
