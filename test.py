@@ -5,8 +5,8 @@ import time
 import random
 
 class Adafruit_MQTT:
-    AIO_FEED_IDs = ["button1", 	"button2"]
-    AIO_USERNAME = "NPNLab_"
+    AIO_FEED_IDs = ["button_1", "button_2"]
+    AIO_USERNAME = "Nhat_Tien_2002"
     AIO_KEY = "aio_NArt58FYoM575sjz7Y4S6UCPmZzo"
     client = MQTTClient(AIO_USERNAME , AIO_KEY)
     counter = 10
@@ -22,7 +22,7 @@ class Adafruit_MQTT:
 
     def disconnected(self, client):
         print("Disconnected...")
-        sys.exit (1)
+        sys.exit(1)
 
     def message(self, client ,feed_id, payload):
         print("Received: " + payload)
@@ -58,6 +58,6 @@ while True:
             print("Luminous intensity is", str(luminous_intensity) + "lx")
             user_1.client.publish("sensor_3", str(luminous_intensity) + "lx")
             user_1.sensor_type = 1
-
+            
         time.sleep(1)
     #print("successfully connected")
