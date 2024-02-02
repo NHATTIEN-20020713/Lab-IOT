@@ -59,5 +59,5 @@ while True:
             user_1.client.publish("sensor_3", str(luminous_intensity) + "lx")
             user_1.sensor_type = 1
             
-        time.sleep(2)
+        time.sleep(1)
     #print("successfully connected")
