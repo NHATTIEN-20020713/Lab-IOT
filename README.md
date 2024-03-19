@@ -8,7 +8,7 @@ https://www.youtube.com/watch?v=Y1Yr10qrOjg
 
 Useful commands:
 
-cls, clear, exit//
+cls, clear, exit\\
 wsl --install: use to install the wsl
 
 wsl --set-default-version 2: use to set the version 2 for wsl because it also has version 1
