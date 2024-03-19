@@ -25,5 +25,5 @@ sudo apt install python3.number: install the python version that you want instea
 python3 --version: check the default version <br>
 python3.number --version: check the installed version (num can be 7, 8, 9, 10, 11, 12,...) <br>
 python3 -m pip install package_name: install package with default python version <br>
-python 3.num -m pip install package_name: install package with the python version you want <br>
+python3.num -m pip install package_name: install package with the python version you want <br>
 python3 or python3.num before run code
