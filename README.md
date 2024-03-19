@@ -7,6 +7,9 @@ https://www.youtube.com/watch?v=aIYhaeJa90g&t=399s
 https://www.youtube.com/watch?v=Y1Yr10qrOjg
 
 Useful commands:
+
+cls, clear, exit
+
 wsl --install: use to install the wsl
 
 wsl --set-default-version 2: use to set the version 2 for wsl because it also has version 1
@@ -14,4 +17,10 @@ wsl --set-default-version 2: use to set the version 2 for wsl because it also ha
 wsl --list --verbose: list all distribution
 
 wsl --set-version Ubuntu-18.04 2
+
+sudo update -y
+
+sudo apt update -y
+
+sudo apt upgrade -y
 
