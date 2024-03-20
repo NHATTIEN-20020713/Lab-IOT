@@ -1,5 +1,5 @@
 # Introduction to WSL, set up WSL for Python-programming 
-For more information about how to install WSL (Windows Subsystem for Linux), we can watch some tutorial videos below:
+For more information about how to install WSL (Windows Subsystem for Linux), you can watch some tutorial videos below:
 
 https://www.youtube.com/watch?v=ypvjxw5qBK0
 
@@ -24,7 +24,7 @@ sudo apt install python3-venv: set up virtual environment <br>
 sudo add-apt-repository ppa:deadsnakes/ppa: set up multiple python versions <br>
 sudo apt install python3.number: install the python version that you want instead of default version <br>
 python3 --version: check the default version <br>
-python3.number --version: check the installed version (num can be 7, 8, 9, 10, 11, 12,...) <br>
+python3.num --version: check the installed version (num can be 7, 8, 9, 10, 11, 12,...) <br>
 python3 -m pip install package_name: install package with default python version <br>
 python3.num -m pip install package_name: install package with the python version you want <br>
-python3 or python3.num before run code
+python3 or python3.num before run code to make sure the version you want to use
