@@ -28,3 +28,7 @@ python3.num --version: check the installed version (num can be 7, 8, 9, 10, 11, 
 python3 -m pip install package_name: install package with default python version <br>
 python3.num -m pip install package_name: install package with the python version you want <br>
 python3 or python3.num before run code to make sure the version you want to use
+
+On Windows, you can set up the virtual environment as follow: <br>
+python or py -m venv any_name (any_name can be: myenv, virtualenv,...) <br>
+any_name\Scripts\activate: to activate the environment
