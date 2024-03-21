@@ -3,6 +3,7 @@ import sys
 from Adafruit_IO import MQTTClient
 import time 
 import random
+from simple_ai import *
 
 class Adafruit_MQTT:
     AIO_FEED_IDs = ["button_1", "button_2"]
@@ -11,6 +12,7 @@ class Adafruit_MQTT:
     client = MQTTClient(AIO_USERNAME , AIO_KEY)
     counter = 10
     sensor_type = 1
+    ai_counter = 5
     
     def connected(self, client):
         print("Connected...")
@@ -59,5 +61,12 @@ while True:
             user_1.client.publish("sensor_3", str(luminous_intensity) + "lx")
             user_1.sensor_type = 1
             
+    user_1.ai_counter = user_1.ai_counter - 1
+    if user_1.ai_counter <= 0:
+        user_1.ai_counter = 5
+        ai_result = imageDetector()
+        print("AI output is", ai_result)
+        user_1.client.publish("AI", ai_result)
+        
         time.sleep(5)
     #print("successfully connected")

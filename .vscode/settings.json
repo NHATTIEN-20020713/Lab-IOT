@@ -6,8 +6,10 @@
         "imshow",
         "MQTT",
         "Nhat",
+        "opencv",
         "printoptions",
         "Tien",
-        "userdata"
+        "userdata",
+        "webcamera's"
     ]
 }
