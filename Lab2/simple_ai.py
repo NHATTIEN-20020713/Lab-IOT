@@ -1,4 +1,5 @@
-import tensorflow as tf
+import tensorflow
+from tensorflow import keras
 from keras.models import load_model  # TensorFlow is required for Keras to work
 import cv2  # Install opencv-python
 import numpy as np
@@ -13,9 +14,10 @@ model = load_model("keras_model.h5", compile=False)
 class_names = open("labels.txt", "r").readlines()
 
 # CAMERA can be 0 or 1 based on default camera of your computer
-camera = cv2.VideoCapture(0)
+# camera = cv2.VideoCapture(0)
 
 def imageDetector():
+    camera = cv2.VideoCapture(0)
     # Grab the webcamera's image.
     ret, image = camera.read()
 
@@ -30,7 +32,7 @@ def imageDetector():
 
     # Normalize the image array
     image = (image / 127.5) - 1
-
+    
     # Predicts the model
     prediction = model.predict(image)
     index = np.argmax(prediction)
