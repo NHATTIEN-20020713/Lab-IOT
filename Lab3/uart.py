@@ -52,8 +52,8 @@ def processData(data):
     data = data.replace("#", "")
     splitData = data.split(":")
     print(splitData)
-    if splitData[1] == "TEMP":
-        client.publish("bbc-temp", splitData[2])
+    if splitData[1] == "T":
+        client.publish("sensor_1", splitData[2])
 
 mess = ""
 def readSerial():
