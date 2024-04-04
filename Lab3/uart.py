@@ -4,9 +4,10 @@ import time
 import  sys
 from  Adafruit_IO import  MQTTClient
 
-AIO_FEED_IDs = ["button_1", "button_2"]
-AIO_USERNAME = "Nhat_Tien_2002"
-AIO_KEY = "aio_NArt58FYoM575sjz7Y4S6UCPmZzo"
+AIO_FEED_IDs = ""
+AIO_USERNAME = ""
+AIO_KEY = ""
+
 
 def  connected(client):
     print("Ket noi thanh cong...")
@@ -41,13 +42,14 @@ def getPort():
         if "USB Serial Device" in strPort:
             splitPort = strPort.split(" ")
             commPort = (splitPort[0])
-    return commPort # can return "COM12"
+    # return commPort # can return "COM12"
+    return "COM4"
 
 # if getPort() != "None": # check if getPort is successful
 ser = serial.Serial( port=getPort(), baudrate=115200)
 
 mess = ""
-def processData(data):
+def processData(client, data):
     data = data.replace("!", "")
     data = data.replace("#", "")
     splitData = data.split(":")
@@ -56,7 +58,7 @@ def processData(data):
         client.publish("sensor_1", splitData[2])
 
 mess = ""
-def readSerial(client):
+def readSerial():
     bytesToRead = ser.inWaiting()
     if (bytesToRead > 0):
         global mess
