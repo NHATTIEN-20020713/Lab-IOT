@@ -1,36 +1,8 @@
 import serial.tools.list_ports
-import random
-import time
-import  sys
-from  Adafruit_IO import  MQTTClient
-
-AIO_FEED_IDs = ""
-AIO_USERNAME = ""
-AIO_KEY = ""
-
-
-def  connected(client):
-    print("Ket noi thanh cong...")
-    client.subscribe(AIO_FEED_IDs)
-
-def  subscribe(client , userdata , mid , granted_qos):
-    print("Subscribed thanh cong...")
-
-def  disconnected(client):
-    print("Disconnected...")
-    sys.exit (1)
-
-def  message(client , feed_id , payload):
-    print("Received: " + payload)
-    ser.write((str(payload) + "#").encode())
-
-client = MQTTClient(AIO_USERNAME , AIO_KEY)
-client.on_connect = connected
-client.on_disconnect = disconnected
-client.on_message = message
-client.on_subscribe = subscribe
-client.connect()
-client.loop_background()
+# import random
+# import time
+# import  sys
+# from  Adafruit_IO import  MQTTClient
 
 def getPort():
     ports = serial.tools.list_ports.comports()
@@ -45,10 +17,11 @@ def getPort():
     # return commPort # can return "COM12"
     return "COM4"
 
-# if getPort() != "None": # check if getPort is successful
-ser = serial.Serial( port=getPort(), baudrate=115200)
+if getPort() != "None": # check if getPort is successful
+    ser = serial.Serial(port=getPort(), baudrate=115200)
+    print(ser)
 
-mess = ""
+# mess = ""
 def processData(client, data):
     data = data.replace("!", "")
     data = data.replace("#", "")
@@ -56,9 +29,13 @@ def processData(client, data):
     print(splitData)
     if splitData[1] == "T":
         client.publish("sensor_1", splitData[2])
+    elif splitData[1] == "H":
+        client.publish("sensor_2", splitData[2])
+    elif splitData[1] == "L":
+        client.publish("sensor_3", splitData[2])
 
 mess = ""
-def readSerial():
+def readSerial(client):
     bytesToRead = ser.inWaiting()
     if (bytesToRead > 0):
         global mess
@@ -72,6 +49,8 @@ def readSerial():
             else:
                 mess = mess[end+1:]
 
-while True:
-    readSerial()
-    time.sleep(1)
+def writeData(data):
+    ser.write(str(data).encode())
+# while True:
+#     readSerial()
+#     time.sleep(1)
