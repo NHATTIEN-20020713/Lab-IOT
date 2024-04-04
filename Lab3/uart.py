@@ -56,7 +56,7 @@ def processData(data):
         client.publish("sensor_1", splitData[2])
 
 mess = ""
-def readSerial():
+def readSerial(client):
     bytesToRead = ser.inWaiting()
     if (bytesToRead > 0):
         global mess
@@ -64,7 +64,7 @@ def readSerial():
         while ("#" in mess) and ("!" in mess):
             start = mess.find("!")
             end = mess.find("#")
-            processData(mess[start:end + 1])
+            processData(client, mess[start:end + 1])
             if (end == len(mess)):
                 mess = ""
             else:
