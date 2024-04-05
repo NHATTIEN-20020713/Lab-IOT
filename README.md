@@ -16,6 +16,7 @@ wsl --set-version Ubuntu-18.04 2 <br>
 sudo update -y <br>
 sudo apt update -y <br>
 sudo apt upgrade -y <br>
+ubuntu config --default-user name: name is the name you set <br>
 
 Commands used for setting up Python to compile and run in WSL: <br>
 sudo apt upgrade python3 <br>
