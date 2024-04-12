@@ -13,7 +13,6 @@ wsl --install: use to install the wsl <br>
 wsl --set-default-version 2: use to set the version 2 for wsl because it also has version 1 <br> 
 wsl --list --verbose: list all distribution <br>
 wsl --set-version Ubuntu-18.04 2 <br>
-sudo update -y <br>
 sudo apt update -y <br>
 sudo apt upgrade -y <br>
 ubuntu config --default-user name: name is the name you set <br>
