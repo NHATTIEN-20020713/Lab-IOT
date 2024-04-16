@@ -35,7 +35,7 @@ def disconnected(client):
     sys.exit(1)
 
 def message(client ,feed_id, payload):
-    print("Received: " + payload)
+    print("Received data: " + payload + ", Feed name: " + feed_id)
         
 client.on_connect = connected
 client.on_disconnect = disconnected
