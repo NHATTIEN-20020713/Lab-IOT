@@ -36,7 +36,19 @@ def disconnected(client):
 
 def message(client ,feed_id, payload):
     print("Received data: " + payload + ", Feed name: " + feed_id)
-        
+    if feed_id == "button_1":
+        if payload == "0":
+            writeData("Button_1 is off")
+        else:
+            writeData("Button_1 is on")
+    
+    elif feed_id == "button_2":
+        if payload == "0":
+            writeData("Button_2 is off")
+        else:
+            writeData("Buttton_2 is on")
+                    
+                    
 client.on_connect = connected
 client.on_disconnect = disconnected
 client.on_message = message

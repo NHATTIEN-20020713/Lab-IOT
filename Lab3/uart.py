@@ -14,7 +14,7 @@ def getPort():
         if "USB Serial Device" in strPort:
             splitPort = strPort.split(" ")
             commPort = (splitPort[0])
-    # return commPort # can return "COM12"
+    # return commPort
     return "COM4"
 
 if getPort() != "None": # check if getPort is successful
