@@ -86,5 +86,5 @@ while True:
     #     time.sleep(5)
         
         readSerial(client)
-        time.sleep(5)
+        time.sleep(2)
     #print("successfully connected")

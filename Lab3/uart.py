@@ -20,7 +20,7 @@ def getPort():
             commPort = (splitPort[0])
     # return commPort
     # return "COM4" # directly return
-    return '/dev/pts/5'
+    return '/dev/pts/4'
 
 if getPort() != "None": # check if getPort is successful
     ser = serial.Serial(port=getPort(), baudrate=115200)
@@ -44,7 +44,7 @@ def readSerial(client):
     bytesToRead = ser.inWaiting()
     if (bytesToRead > 0):
         global mess
-        mess = mess + ser.read(bytesToRead).decode("UTF-8")
+        mess = mess + ser.read(bytesToRead).decode("utf-8")
         while ("#" in mess) and ("!" in mess):
             start = mess.find("!")
             end = mess.find("#")
