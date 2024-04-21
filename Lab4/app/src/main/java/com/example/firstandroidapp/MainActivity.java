@@ -126,9 +126,9 @@ public class MainActivity extends AppCompatActivity
                     {
                         buttonLed2.setOn(true);
                     }
-                    esle
+                    else
                     {
-                        buttonLed2(false);
+                        buttonLed2.setOn(false);
                     }
                 }
             }
