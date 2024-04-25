@@ -35,18 +35,18 @@ def disconnected(client):
     sys.exit(1)
 
 def message(client ,feed_id, payload):
-    print("Feed name: " + feed_id + ", Received data: " + payload)
-    if feed_id == "button_1":
-        if payload == "0":
-            writeData("B1_0")
+    print('Feed name: ' + feed_id + ', Received data: ' + payload)
+    if feed_id == 'button_1':
+        if payload == '0':
+            writeData('1_0')
         else:
-            writeData("B1_1")
+            writeData('1_1')
     
-    elif feed_id == "button_2":
-        if payload == "0":
-            writeData("B2_0")
+    elif feed_id == 'button_2':
+        if payload == '0':
+            writeData('2_0')
         else:
-            writeData("B2_1")
+            writeData('2_1')
                     
                     
 client.on_connect = connected
@@ -86,5 +86,5 @@ while True:
     #     time.sleep(5)
         
         readSerial(client)
-        time.sleep(2)
+        time.sleep(5)
     #print("successfully connected")
