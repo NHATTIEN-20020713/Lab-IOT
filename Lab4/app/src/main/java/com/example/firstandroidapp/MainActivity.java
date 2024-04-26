@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity
 
         buttonLed2.setOnToggledListener(new OnToggledListener() {
             @Override
-            public void onSwitched(ToggleableView toggleableView, boolean isOn)
+            public void onSwitched(ToggleableView toggleableView, boolean isOn2)
             {
-                if(isOn == true)
+                if(isOn2 == true)
                 {
                     sendDataMQTT("Nhat_Tien_2002/feeds/button-2", "1");
                 }

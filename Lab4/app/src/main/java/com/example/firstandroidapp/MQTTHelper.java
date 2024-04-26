@@ -21,7 +21,7 @@ public class MQTTHelper
 
     public final String[] arrayTopics = {"Nhat_Tien_2002/feeds/sensor-1", "Nhat_Tien_2002/feeds/sensor-2", "Nhat_Tien_2002/feeds/button-1", "Nhat_Tien_2002/feeds/button-2"};
 
-    final String clientId = "12345678";
+    final String clientId = "9812340065";
     final String username = "Nhat_Tien_2002";
     final String password = "aio_NArt58FYoM575sjz7Y4S6UCPmZzo";
 
